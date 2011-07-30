@@ -2,7 +2,7 @@
 
 #define N     30
 
-char *my_copy(char *d, char *s)
+char *my_copy(char *d, char *s) /// 下面的函数可以代替char函数
 {
     while(*s!='\0')   
     {                  
