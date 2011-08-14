@@ -57,7 +57,9 @@ STU *add_note(STU *p)
         perror("create new");
         exit(0);
     }
+    printf("please input the number");
     scanf("number%d",&p_c->number);
+    printf("please input the name");
     scanf("name%s",p_c->name);
     p_c->next=NULL;
 
@@ -101,6 +103,7 @@ STU *remove_link(STU *q)
         printf("empty");
         return NULL;
     }
+    printf("please input the number :");
     scanf("%d",&i);
 
     if (q->number==i)

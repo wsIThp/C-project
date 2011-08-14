@@ -1,9 +1,4 @@
 /*此函数是学生管理系统，主函数有两个，一个时常规函数，一个用到来getchar(),
-*
-
-
-
-
 */
 #include <stdio.h>
 #include <stdlib.h>
