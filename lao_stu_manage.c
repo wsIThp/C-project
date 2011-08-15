@@ -123,6 +123,49 @@ void save_link(stu *p)
     }
     fclose(fp);
 }
+stu *read_date(void)
+{
+    stu *head=NULL;
+    stu *p=NULL;
+    int  num;
+    char nam[10];
+    FILE *fp;
+    fp=fopen("1.txt","r+");
+    if(fp==NULL)
+    {
+        perror("open");
+        exit(0);
+    }
+    if(fscanf(fp,"%d%s",&num,nam)==EOF);
+    {
+        return NULL;
+    }
+    p=head=malloc(sizeof(stu));
+    if (head==NULL)
+    {
+        perror("create");
+        exit(0);
+    }
+    head->number=num;
+    strcpy(p->name,nam);
+    //strncpy(p->name,nam,10);
+    head->next=NULL;
+    while(fscanf(fp,"%d%s",&num,nam)!=EOF)
+    {
+        p->next=malloc(sizeof(stu));
+        if (p->next==NULL) 
+        {
+            perror("create");
+            exit(0);
+        }
+        p->next->number=num;
+        strncpy(p->next->name,nam,10);
+        p->next->next=NULL;
+        p=p->next;
+    }
+    close(fp);
+    return head;
+}
 /*
 int main(int argc, const char *argv[])
 {
@@ -155,6 +198,7 @@ int main(int argc, const char *argv[])/////用此主函数时，应该注意在�
     char flag=1;
     char choice=0;
     
+    head=read_date();
     while(flag>0)
     {
         menu();
