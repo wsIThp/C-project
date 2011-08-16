@@ -137,7 +137,7 @@ stu *read_date(void)
         perror("open");
         exit(0);
     }
-    if(fscanf(fp,"%d%s",&num,nam)==EOF)
+    if(fscanf(fp,"%d%s",&num,nam)==EOF)////////////////////////////
     {
         return NULL;
     }
@@ -149,7 +149,7 @@ stu *read_date(void)
     }
     head->number=num;
     //strcpy(p->name,nam);
-    strncpy(p->name,nam,10);
+    strncpy(p->name,nam,9);
     head->next=NULL;
     while(fscanf(fp,"%d%s",&num,nam)!=EOF)
     {
@@ -160,7 +160,7 @@ stu *read_date(void)
             exit(0);
         }
         p->next->number=num;
-        strncpy(p->next->name,nam,10);
+        strncpy(p->next->name,nam,9);
         p->next->next=NULL;
         p=p->next;
     }

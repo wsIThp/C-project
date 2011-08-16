@@ -1,0 +1,18 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+add_link	lao_stu_manage.c	/^stu *add_link(stu *head)$/;"	f
+delete_link	lao_stu_manage.c	/^stu *delete_link(stu *p)$/;"	f
+main	lao_stu_manage.c	/^int main(int argc, const char *argv[])\/\/\/\/\/用此主函数时，应该注意在输入函数中添加getchar(),用来消除缓冲区的回车键。。此函数中在插入 和 删除函数中都要用到。$/;"	f
+menu	lao_stu_manage.c	/^char menu(void)$/;"	f
+name	lao_stu_manage.c	/^    char name[10];$/;"	m	struct:student	file:
+next	lao_stu_manage.c	/^    struct student *next;$/;"	m	struct:student	typeref:struct:student::student	file:
+number	lao_stu_manage.c	/^    int number;$/;"	m	struct:student	file:
+printf_link	lao_stu_manage.c	/^void printf_link(stu *p)$/;"	f
+read_date	lao_stu_manage.c	/^stu *read_date(void)$/;"	f
+save_link	lao_stu_manage.c	/^void save_link(stu *p)$/;"	f
+stu	lao_stu_manage.c	/^typedef struct student stu;$/;"	t	typeref:struct:student	file:
+student	lao_stu_manage.c	/^struct student $/;"	s	file:

@@ -1,0 +1,20 @@
+/*这个文件中专门存放变量的声明
+
+*/
+
+
+#ifndef _VAR_H_
+#define _VAR_H_
+
+#include "func.h"
+
+
+
+extern  fbscr_t fb_v;//////定义全局变量（结构体型的变量fb_v）
+
+
+
+
+
+
+#endif
