@@ -18,7 +18,7 @@ typedef struct
 int init_data(void);													///声明初始化函数
 int fb_one_pixel(int x,int y,u32_t color);								///声明画一个点函数
 int fb_line(int x1,int y1,int x2,int y2,u32_t color);					////声明画一条直线的函数
-
+void swap(int *a,int *b);
 
 
 

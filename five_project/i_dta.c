@@ -45,7 +45,7 @@ if (fb_v.memo==MAP_FAILED)
 		exit(0);
 	}
 	
-	memset(fb_v.memo,0x0000ff00,fb_v.w*fb_v.h*fb_v.bpp/8);//////这个操作是清屏操作十六进制数表示清屏后显示的颜色
+	memset(fb_v.memo,0x00ff0000,fb_v.w*fb_v.h*fb_v.bpp/8);//////这个操作是清屏操作十六进制数表示清屏后显示的颜色
 	
 	
 	/*int i;///////
