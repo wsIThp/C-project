@@ -36,7 +36,7 @@ int init_data(void)
 	fb_v.bpp=fb_var.bits_per_pixel;
 	
 	fb_v.memo=mmap(NULL,fb_v.w*fb_v.h*fb_v.bpp/8,PROT_READ|PROT_WRITE,MAP_SHARED,fd,0);
-
+	/*工具接口函数mmap可以把磁盘文件的一部分直接映射到内存，这样文件中的位置直接就有对应的内存地址，对文件的读写可以直接用指		针来做*/
 	
 
 if (fb_v.memo==MAP_FAILED)
@@ -55,7 +55,8 @@ if (fb_v.memo==MAP_FAILED)
 		p[1024*300+i]=0x0000ffff;                     	    /////十六进制表示颜色。八位从前向后，前两位表示灰度一般用不到，接下来两位红色，依次为绿色蓝色。
 	}*/
 
-	int i;////////在屏幕上打印出一条横线
+	////////下面的循环函数在屏幕上打印出一条横线
+	int i;
 	u32_t *p=fb_v.memo;
 	for (i = 0; i < fb_v.w; i++)
 	{
