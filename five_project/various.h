@@ -13,7 +13,8 @@
 extern  fbscr_t fb_v;//////定义全局变量（结构体型的变量fb_v）
 
 
-
+extern  int mx;      /////////定义全局变量（整形）
+extern  int my;        ///////
 
 
 

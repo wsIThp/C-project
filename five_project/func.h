@@ -21,6 +21,12 @@ typedef struct
 	void *memo;
 }fbscr_t;							///////直接定义fbscr_t为结构体类型
 
+typedef struct
+{
+	int dx;
+	int dy;
+	int buffon;
+}mouse_event;
 
 int init_data(void);													///声明初始化函数
 int fb_one_pixel(int x,int y,u32_t color);								///声明画一个点函数
@@ -31,5 +37,8 @@ int fb_hollow_circle(int x0,int y0,int r,u32_t color);
 int fb_solid_circle(int x0,int y0,int r,u32_t color);
 int fb_chessboard(void);
 void printf_board(void);
-
+int draw_cursor(int x,int y);			////////划出鼠标点的函数
+int save_bg(int x,int y);
+int restore_bg(int x,int y);
+int mouse_doing(void);
 #endif

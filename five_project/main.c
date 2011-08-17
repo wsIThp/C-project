@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "func.h"
 #include "various.h"
+#include <unistd.h>  ////此头文件只为了服务sleep函数。
+
 
 /*******************************************************************************
  *此函数在屏幕中间打印出圆点
@@ -51,10 +53,35 @@
 *******************************************************************************/
 
 
+/*int main(int argc, const char *argv[])
+{
+	init_data();
+	printf_board();
+	fb_solid_circle(500,300,11,0x0000ff00);
+	fb_solid_circle(600,800,11,0x00ff0000);
+	return 0;
+}*/
+
+/***********************************************************
+ *此函数仅仅是用来证明鼠标的移动1.先保存背景。2.划出鼠标。3.恢复背景。4.划出新的鼠标
+**************************************************************/
+/*int main(int argc, const char *argv[])
+{
+	init_data();
+	save_bg(512,368);
+	draw_cursor(512,368);
+	sleep(2);				//////sleep（int n）函数仅仅是为了显示鼠标的移动，它的功能时可以让程序停在当前位置n秒。
+	restore_bg(512,368);
+	draw_cursor(612,368);
+	return 0;
+}*/
+
+
+
 int main(int argc, const char *argv[])
 {
 	init_data();
 	printf_board();
+	mouse_doing();
 	return 0;
 }
-
