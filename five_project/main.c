@@ -77,10 +77,11 @@
 }*/
 
 
-
 int main(int argc, const char *argv[])
 {
 	init_data();
+
+	printf_board_bg();
 	printf_board();
 	mouse_doing();
 	return 0;

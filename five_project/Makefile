@@ -7,7 +7,7 @@
 #	rm -rf *.o
 #	rm -rf ~*
 
-src=main.c i_dta.c basic_shapes.c print_chess_board.c mouse_op.c  			###加入新的函数直接跟在后边即可，之间用空格隔开
+src=main.c i_dta.c basic_shapes.c print_chess_board.c mouse_op.c chess_op.c  			###加入新的函数直接跟在后边即可，之间用空格隔开
 para=-o main -Wall
 main:$(src)
 	gcc $(src) $(para)

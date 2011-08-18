@@ -15,6 +15,10 @@ fbscr_t fb_v;												//////定义结构体变量
 int mx;
 int my;
 
+char player;
+char chess_board[X_NUM*Y_NUM];
+u32_t current_color;
+
 int init_data(void)
 {
 	int fd=0;
@@ -48,7 +52,7 @@ if (fb_v.memo==MAP_FAILED)
 		exit(0);
 	}
 	
-	memset(fb_v.memo,0x00ff0000,fb_v.w*fb_v.h*fb_v.bpp/8);//////这个操作是清屏操作十六进制数表示清屏后显示的颜色
+	memset(fb_v.memo,0,fb_v.w*fb_v.h*fb_v.bpp/8);//////这个操作是清屏操作十六进制数表示清屏后显示的颜色
 	
 	
 	/*int i;///////
@@ -63,12 +67,17 @@ if (fb_v.memo==MAP_FAILED)
 	****************************************/
 	int i;
 	u32_t *p=fb_v.memo;
-	for (i = 0; i < fb_v.w; i++)
-	{
-		p[i]=0x0000ffff;
-	}
-
+		for (i = 0; i < fb_v.w; i++)
+		{
+			p[i]=0x0000ffff;
+		}
 	////printf("w=%d\th=%d\tbpp=%d\t",fb_var.xres,fb_var.yres,fb_var.bits_per_pixel);
+
+	memset(chess_board,0,X_NUM*Y_NUM);///////这个函数memset是用0将（X_NUM*Y_NUM）这么大的数组全部用零赋值，从指针chess_board的首地址开始。
+	current_color=BLACK;		/////初始化
+	player=1;			/////初始化player
 	
+
+
 	return 0;
 }
