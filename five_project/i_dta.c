@@ -11,19 +11,19 @@
 #include <sys/mman.h>
 #include "func.h"
 
-fbscr_t fb_v;												//////定义结构体变量
-int mx;
-int my;
-
-char player;
-char chess_board[X_NUM*Y_NUM];
-u32_t current_color;
+fbscr_t fb_v;											//////定义结构体变量
+int mx;													//////
+int my;													//////
+		/*定义的全局变量在用到的时候必须重新定义，这时初始化函数，在以后几乎所有的函数中都会用到这些变量，但是他们都会调用这个初始化函数，相当于调用此函数的时候自己都定义过来，所以在其他的函数中不需要重新定义*/
+char player;											//////		
+char chess_board[X_NUM*Y_NUM];							//////
+u32_t current_color;									//////
 
 int init_data(void)
 {
 	int fd=0;
 	struct fb_var_screeninfo fb_var;						/////定义结构体变量
-	fd=open("/dev/fb0",O_RDWR);								//////open函数打开文件。
+	fd=open("/dev/fb0",O_RDWR);								//////open函数用O_RDWD的权限打开文件。
 	if (fd<0) 
 	{
 		perror("open fb0");

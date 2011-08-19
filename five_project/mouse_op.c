@@ -75,7 +75,7 @@ int save_bg(int x,int y)
 	{
 		for (i = 0; i < C_W; i++) 
 		{
-			bg[i+j*C_W]=*((u32_t *)fb_v.memo+x+i+(y+j)*fb_v.w);
+			bg[i+j*C_W]=*((u32_t *)fb_v.memo+x+i+(y+j)*fb_v.w);/////将当前位置（相对于整体的x和y的坐标）的背景存放到新定义的空的数组中
 		}
 	}
 	return 0;
@@ -112,8 +112,8 @@ int get_mouse_info(int fd,mouse_event *p)
 	if (n>0) 
 	{
 		p->dx=buf[1];				/////////将信息赋值到定义的结构体中
-		p->dy=-buf[2];				///////////////
-		p->buffon=(buf[0] & 0x07);	/////
+		p->dy=-buf[2];				/////////
+		p->buffon=(buf[0] & 0x07);	/////////
 	}
 	return n ;
 }
@@ -146,21 +146,22 @@ int mouse_doing(void)
 	int fb=0;
 	char flag;
 	mouse_event m_e;
-
-			char press_do=0;
-	fb=open("/dev/input/mice",O_RDWR|O_NONBLOCK);
+	
+	char press_do=0;
+	
+	fb=open("/dev/input/mice",O_RDWR|O_NONBLOCK);///////用O_RDWR|O_NONBLOCK权限打开设备文件中的鼠标文件并且
 	if (fb==-1)
 	{
 		perror("/dev/input/mice");
 		exit(0);
 	}
 	
-	mx=fb_v.w/2;
-	my=fb_v.h/2;
+	mx=fb_v.w/2；  		//////定义鼠标的起始位置在屏幕中间
+	my=fb_v.h/2; 		//////
 	draw_cursor(mx,my);//////如果没有这句代码在屏幕中间（即鼠标刚开始出现的位置）将不会恢复之前的背景色     之前的会被抹掉
 	while(1)
 	{
-		if (get_mouse_info(fb,&m_e)>0)
+		if (get_mouse_info(fb,&m_e)>0)////如果读到数据
 		{
 			restore_bg(mx,my);/////////移动鼠标之前先恢复背景颜色
 			mx+=m_e.dx;
@@ -187,7 +188,7 @@ int mouse_doing(void)
 				case 0:
 				if (press_do==1)
 				{
-					press_do=0;
+					press_do=0;/////定义的（press_do）按下鼠标下去是1，上来是0
 					
 					flag=chess_doing();/////////flag接收写好的能够在交叉处划出棋子函数中的游戏的胜利者
 //					fb_solid_circle(mx,my,13,0x000000ff);
@@ -204,7 +205,7 @@ int mouse_doing(void)
 			if(flag>0)
 			{
 				printf("player %d was won\n",flag);
-				getchar();
+				getchar();/////enter键继续进行程序
 				flag = 0;
 				reinit();/////恢复函数：恢复屏幕，棋盘，跟程序刚开始运行一样。可以继续运行整个函数
 				///break;//////如果不注释掉break，只可以玩一次正需就会跳出

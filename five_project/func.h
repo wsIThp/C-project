@@ -19,7 +19,7 @@ typedef unsigned int u32_t;			////
 
 
 
-typedef struct
+typedef struct						///////定义存放/dev/fb0文件中需要数据的结构体
 {
 	int w;
 	int h;
@@ -30,8 +30,8 @@ typedef struct
 
 typedef struct
 {
-	int dx;
-	int dy;
+	int dx;							///////横坐标移动的位移
+	int dy;							///////纵坐标移动的位移
 	char buffon;
 }mouse_event;
 

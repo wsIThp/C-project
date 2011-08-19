@@ -29,7 +29,7 @@ int fb_line(int x1,int y1,int x2,int y2,u32_t color)/// 此函数功能是从坐
 	int dy=y2-y1;
 	int inc=((dx*dy) > 0 ? 1 : -1 );
 	int p=0;//////p是一中被定义好的算法
-	if(abs(dx)>abs(dy))
+	if(abs(dx)>abs(dy))								///abs是绝对值函数
 	{
 		if(dx<0)
 			{
@@ -38,8 +38,8 @@ int fb_line(int x1,int y1,int x2,int y2,u32_t color)/// 此函数功能是从坐
 				dx=-dx;
 				dy=-dy;
 			}
-			dy=abs(dy);
-		p=2*dy-dx;
+			dy=abs(dy);								///bresenham算法
+		p=2*dy-dx;					
 		while(x1<=x2)
 		{
 			fb_one_pixel(x1,y1,color);//////在(x1,y1)处画一个点
@@ -93,7 +93,7 @@ int fb_hollow_circle(int x0,int y0,int r,u32_t color)
 	int p=3-2*r;
 	while(x<=y)
 	{
-		fb_one_pixel(x0+x,y0+y,color);
+		fb_one_pixel(x0+x,y0+y,color);///////先画1/8圆    然后8对称原则
 		fb_one_pixel(x0+y,y0+x,color);
 		fb_one_pixel(x0+x,y0-y,color);
 		fb_one_pixel(x0+y,y0-x,color);
